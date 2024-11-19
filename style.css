@@ -1,0 +1,504 @@
+:root {
+  ---container-width: 1020px;
+  ---bg-color-grey: #f2f2f2;
+  --bg-color-light-red: #f5c8ae;
+  --bg-color-header: #0078d4;
+  --container-padding: 45px;
+  --container-margin: 4rem;
+  --clr-text: #2f2f2f;
+}
+
+@media (max-width: 850px) {
+  :root {
+    --container-padding: 1rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: var(--clr-text);
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.container {
+  margin-inline: auto;
+  width: min(100%, var(---container-width));
+}
+
+.hero-block {
+  display: grid;
+  padding: var(--container-padding);
+  margin-block: var(--container-margin);
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(---bg-color-grey);
+}
+
+.hero-block__logo {
+  height: 24px;
+  grid-area: 1/1/2/2;
+}
+
+.hero-block__title {
+  grid-area: 2/1/3/2;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.hero-block__subtitle {
+  grid-area: 3/1/4/2;
+}
+
+.hero-block__image {
+  grid-area: 1/2/4/3;
+}
+
+@media (max-width: 850px) {
+  .hero-block {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+  .hero-block__logo {
+    justify-self: center;
+  }
+  .hero-block__title {
+    font-size: 2rem;
+  }
+  .hero-block__image {
+    display: none;
+  }
+}
+
+.title-container {
+  display: flex;
+  padding-inline: var(--container-padding);
+  margin-block: 3rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.help-customers {
+  display: grid;
+  column-gap: 3rem;
+  margin-block: var(--container-margin);
+  padding: var(--container-padding);
+  background-color: var(---bg-color-grey);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.help-customers__text {
+  align-self: center;
+}
+
+.help-customers .link {
+  align-self: flex-end;
+}
+
+.help-customers__image {
+  grid-area: 1/2/3/3;
+}
+
+@media (max-width: 850px) {
+  .help-customers {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .help-customers__image {
+    grid-area: 1/1/2/2;
+  }
+  .help-customers__text {
+    grid-area: 2/1/3/2;
+  }
+}
+
+.cards {
+  display: grid;
+  margin-block: var(--container-margin);
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+}
+
+.cards__card {
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+  row-gap: 1rem;
+}
+
+@media (max-width: 850px) {
+  .cards {
+    padding-inline: var(--container-padding);
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.new-office {
+  display: grid;
+  margin-block: var(--container-margin);
+  padding: var(--container-padding);
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1rem;
+  background-color: var(--bg-color-light-red);
+}
+
+.new-office__title {
+  width: 80%;
+  grid-area: 1/1/2/2;
+  align-self: center;
+  line-height: 1.3;
+}
+.new-office__img {
+  height: min-content;
+  grid-area: 1/2/2/4;
+}
+.new-office__text {
+  grid-area: 2/1/3/4;
+}
+
+@media (max-width: 850px) {
+  .new-office {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .new-office__img {
+    grid-area: 1/1/2/2;
+  }
+  .new-office__title {
+    grid-area: 2/1/3/2;
+    width: 100%;
+  }
+  .new-office__text {
+    grid-area: 3/1/4/2;
+  }
+}
+
+.tips__card {
+  display: flex;
+}
+
+.tips__card-reverse {
+  flex-direction: row-reverse;
+}
+
+.tips__card_img {
+  object-fit: cover;
+  flex-grow: 0;
+  width: 50%;
+}
+
+.tips__text {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  gap: 1rem;
+  padding: var(--container-padding);
+  background-color: var(---bg-color-grey);
+}
+
+@media (max-width: 850px) {
+  .tips__card {
+    padding-inline: var(--container-padding);
+    flex-direction: column;
+  }
+
+  .tips__card_img {
+    width: 100%;
+  }
+  .tips__text {
+    width: 100%;
+  }
+}
+
+.figure {
+  display: grid;
+  margin-block: var(--container-margin);
+}
+
+.figure > * {
+  grid-area: 1/1;
+}
+
+.figure h3 {
+  place-self: center;
+  width: 50%;
+  text-align: center;
+  font-weight: 300;
+}
+
+@media (max-width: 850px) {
+  .figure {
+    padding-block: var(--container-padding);
+  }
+  .figure h3 {
+    padding: 1rem;
+    background-color: var(---bg-color-grey);
+  }
+  .figure > * {
+    place-self: center;
+  }
+}
+
+.microsoft-products {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.microsoft-products__title {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.microsoft-products__icons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  place-items: center;
+  margin-inline: auto;
+}
+
+.microsoft-products__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.microsoft-products__icon img {
+  justify-self: center;
+  margin-inline: auto;
+  height: 45px;
+  width: 45px;
+}
+
+.microsoft-products__columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.microsoft-products__column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (max-width: 850px) {
+  .microsoft-products__icons {
+    padding-inline: var(--container-padding);
+  }
+  .microsoft-products__columns {
+    padding-inline: var(--container-padding);
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+.campaign {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.campaign__text {
+  display: flex;
+  padding: var(--container-padding);
+  gap: 1rem;
+  flex-direction: column;
+  background-color: var(---bg-color-grey);
+}
+
+.campaign__text ul {
+  margin-left: 1rem;
+}
+
+.campaign__text .button {
+  margin-right: auto;
+}
+
+.campaign__img {
+  object-fit: cover;
+  height: 100%;
+}
+
+@media (max-width: 850px) {
+  .campaign {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+  .campaign__img {
+    display: none;
+  }
+}
+
+.learn-more {
+  display: flex;
+  margin-block: var(--container-margin);
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.learn-more p {
+  width: 50%;
+  text-align: center;
+}
+.header {
+  padding-inline: var(--container-padding);
+  padding-block: 1rem;
+  box-shadow: 0 0 0 100vmax var(--bg-color-header);
+  clip-path: inset(0 -100vmax);
+  background-color: var(--bg-color-header);
+}
+.header__logo {
+  height: 45px;
+}
+
+.footer {
+  padding-inline: var(--container-padding);
+  padding-block: 1rem;
+  box-shadow: 0 0 0 100vmax var(---bg-color-grey);
+  clip-path: inset(0 -100vmax);
+  background-color: var(---bg-color-grey);
+}
+
+.devider {
+  height: 1px;
+  margin-block: 3rem;
+  background-color: grey;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background: black;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.fz-400 {
+  font-size: 1rem;
+}
+
+.fz-500 {
+  font-size: 1.5rem;
+}
+.fz-600 {
+  font-size: 2rem;
+}
+
+.fz-700 {
+  font-size: 2.5rem;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
