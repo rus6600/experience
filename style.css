@@ -244,6 +244,7 @@ textarea:not([rows]) {
 }
 .new-office__img {
   height: min-content;
+  object-fit: cover;
   grid-area: 1/2/2/4;
 }
 .new-office__text {
