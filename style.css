@@ -4,7 +4,7 @@
   --bg-color-light-red: #f5c8ae;
   --bg-color-header: #0078d4;
   --container-padding: 45px;
-  --container-margin: 4rem;
+  --container-margin: 1rem;
   --clr-text: #2f2f2f;
 }
 
@@ -203,6 +203,13 @@ textarea:not([rows]) {
   .help-customers__text {
     grid-area: 2/1/3/2;
   }
+
+  .help-customers a {
+    justify-self: center;
+  }
+  a {
+    margin-inline: auto;
+  }
 }
 
 .cards {
@@ -323,9 +330,16 @@ textarea:not([rows]) {
 
 @media (max-width: 850px) {
   .figure {
-    padding-block: var(--container-padding);
+    display: block;
+    width: 100%;
+    padding-inline: var(--container-padding);
+  }
+
+  .figure img {
+    display: none;
   }
   .figure h3 {
+    width: 100%;
     padding: 1rem;
     background-color: var(---bg-color-grey);
   }
@@ -390,6 +404,7 @@ textarea:not([rows]) {
 
 .campaign {
   display: grid;
+  margin-block: 1rem;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -466,7 +481,7 @@ textarea:not([rows]) {
 }
 
 .button {
-  padding: 0.5rem 1rem;
+  padding: 1rem 2.5rem;
   background: black;
   border-radius: 0.5rem;
   border: none;
